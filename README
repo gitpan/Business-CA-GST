@@ -2,7 +2,7 @@ NAME
     Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
     A tax table for Canadian GST/HST payments. Actual tax calculations are

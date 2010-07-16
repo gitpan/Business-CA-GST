@@ -21,5 +21,5 @@ requires:
   Moose: 0
 resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-CA-GST
-  repository: http://hg.urth.org/hg/Markdent
-version: 0.01
+  repository: http://github.com/oalders/business-ca-gst
+version: 0.02
