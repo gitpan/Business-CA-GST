@@ -2,21 +2,22 @@ NAME
     Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 VERSION
-    version 0.02
+    version 1.00
 
 SYNOPSIS
+        use Business::CA::GST
+        my $tax = Business::CA::GST->new;
+        $tax->buyer_region('ON');
+
+        print $tax->rate, "\n";     # gives 0.13
+        print $tax->tax_type, "\n"; # gives 'HST'
+
+DESCRIPTION
     A tax table for Canadian GST/HST payments. Actual tax calculations are
     left as an exercise for the reader. Please see
     <http://en.wikipedia.org/wiki/Sales_taxes_in_Canada> for a more detailed
     explanation of how GST and HST works (it's not as simple as one might
     hope).
-
-        use Business::CA::GST
-        my $tax = Business::CA::GST->new;
-        $tax->buyer_region('ON');
-    
-        print $tax->rate, "\n";     # gives 0.13
-        print $tax->tax_type, "\n"; # gives 'HST'
 
 CONSTRUCTOR AND STARTUP
   new( buyer_region => $region )
@@ -24,8 +25,7 @@ CONSTRUCTOR AND STARTUP
 
         my $tax = Business::CA::GST->new();
 
-    *   "buyer_region => $region_code"
-
+    "buyer_region => $region_code"
         You may pass this parameter to new(), and/or you may use the
         buyer_region() method after having created the object. See the
         buyer_region() documentation below for a list of allowable region
@@ -53,25 +53,14 @@ SUPPORT
 
     You can also look for information at:
 
-    *   GitHub Source Repository
-
+    Source code
         <http://github.com/oalders/business-ca-gst>
 
-    *   RT: CPAN's request tracker
-
+    Bugs and Requests
         <http://rt.cpan.org/NoAuth/Bugs.html?Dist=business-ca-gst>
 
-    *   AnnoCPAN: Annotated CPAN documentation
-
-        <http://annocpan.org/dist/business-ca-gst>
-
-    *   CPAN Ratings
-
-        <http://cpanratings.perl.org/d/business-ca-gst>
-
-    *   Search CPAN
-
-        <http://search.cpan.org/dist/business-ca-gst/>
+    Search CPAN
+        <https://metacpan.org/module/Business::CA::GST>
 
 ACKNOWLEDGEMENTS
     Thanks to Raybec Communications <http://www.raybec.com> for funding my
@@ -81,7 +70,7 @@ AUTHOR
     Olaf Alders <olaf@wundercounter.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2010 by Olaf Alders.
+    This software is copyright (c) 2012 by Olaf Alders.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

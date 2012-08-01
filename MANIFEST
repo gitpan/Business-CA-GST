@@ -1,10 +1,9 @@
 Build.PL
-Business-CA-GST.kpf
 Changes
 INSTALL
 LICENSE
 MANIFEST
-META.yml
+META.json
 Makefile.PL
 README
 dist.ini
@@ -12,4 +11,3 @@ lib/Business/CA/GST.pm
 t/author-critic.t
 t/load.t
 t/release-pod-coverage.t
-t/release-pod-syntax.t

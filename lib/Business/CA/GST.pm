@@ -2,11 +2,12 @@ use strict;
 use warnings;
 
 package Business::CA::GST;
-BEGIN {
-  $Business::CA::GST::VERSION = '0.02';
+{
+  $Business::CA::GST::VERSION = '1.00';
 }
 
 use Moose;
+use Carp qw( croak );
 
 my %TAX = (
     AB => { rate => 0.05, type => 'GST' },
@@ -24,9 +25,7 @@ my %TAX = (
     NU => { rate => 0.05, type => 'GST' },
 );
 
-has 'buyer_region' => (
-    is   => 'rw',
-);
+has 'buyer_region' => ( is => 'rw', );
 
 sub rate {
 
@@ -35,7 +34,6 @@ sub rate {
     return $TAX{ $self->buyer_region }->{rate};
 
 }
-
 
 sub tax_type {
 
@@ -46,24 +44,23 @@ sub tax_type {
 }
 
 sub _validate_region {
-    
+
     my $self = shift;
-    
+
     if ( !exists $TAX{ $self->buyer_region } ) {
-        die "invalid buyer_region: " . $self->buyer_region;
+        croak "invalid buyer_region: " . $self->buyer_region;
     }
-    
+
     return 1;
-    
+
 }
+
+__PACKAGE__->meta->make_immutable;
+
+1;
 
 # ABSTRACT: Look up Canadian Federal Sales Tax rates
 
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
-
-1;
 
 __END__
 =pod
@@ -74,21 +71,23 @@ Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 =head1 VERSION
 
-version 0.02
+version 1.00
 
 =head1 SYNOPSIS
+
+    use Business::CA::GST
+    my $tax = Business::CA::GST->new;
+    $tax->buyer_region('ON');
+
+    print $tax->rate, "\n";     # gives 0.13
+    print $tax->tax_type, "\n"; # gives 'HST'
+
+=head1 DESCRIPTION
 
 A tax table for Canadian GST/HST payments. Actual tax calculations are left as
 an exercise for the reader. Please see
 L<http://en.wikipedia.org/wiki/Sales_taxes_in_Canada> for a more detailed
 explanation of how GST and HST works (it's not as simple as one might hope).
-
-    use Business::CA::GST
-    my $tax = Business::CA::GST->new;
-    $tax->buyer_region('ON');
-    
-    print $tax->rate, "\n";     # gives 0.13
-    print $tax->tax_type, "\n"; # gives 'HST'
 
 =head1 CONSTRUCTOR AND STARTUP
 
@@ -100,9 +99,9 @@ Creates and returns a new Business::CA::GST object.
 
 =over 4
 
-=item * C<< buyer_region => $region_code >>
+=item C<< buyer_region => $region_code >>
 
-You may pass this parameter to new(), and/or you may use the buyer_region() 
+You may pass this parameter to new(), and/or you may use the buyer_region()
 method after having created the object. See the buyer_region() documentation
 below for a list of allowable region codes.
 
@@ -136,25 +135,17 @@ You can also look for information at:
 
 =over 4
 
-=item * GitHub Source Repository
+=item Source code
 
 L<http://github.com/oalders/business-ca-gst>
 
-=item * RT: CPAN's request tracker
+=item Bugs and Requests
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=business-ca-gst>
 
-=item * AnnoCPAN: Annotated CPAN documentation
+=item Search CPAN
 
-L<http://annocpan.org/dist/business-ca-gst>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/business-ca-gst>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/business-ca-gst/>
+L<https://metacpan.org/module/Business::CA::GST>
 
 =back
 
@@ -169,7 +160,7 @@ Olaf Alders <olaf@wundercounter.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Olaf Alders.
+This software is copyright (c) 2012 by Olaf Alders.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
