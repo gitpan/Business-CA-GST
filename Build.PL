@@ -7,7 +7,10 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "Module::Build" => "0.3601"
+    "English" => 0,
+    "Module::Build" => "0.3601",
+    "Test::Exception" => 0,
+    "Test::More" => 0
   },
   "configure_requires" => {
     "ExtUtils::MakeMaker" => "6.30",
@@ -18,12 +21,17 @@ my %module_build_args = (
     "Olaf Alders <olaf\@wundercounter.com>"
   ],
   "dist_name" => "Business-CA-GST",
-  "dist_version" => "1.00",
+  "dist_version" => "1.01",
   "license" => "perl",
   "module_name" => "Business::CA::GST",
   "recommends" => {},
   "recursive_test_files" => 1,
-  "requires" => {},
+  "requires" => {
+    "Carp" => 0,
+    "Moose" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
   "script_files" => []
 );
 

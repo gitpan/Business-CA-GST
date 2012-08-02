@@ -3,7 +3,7 @@ use warnings;
 
 package Business::CA::GST;
 {
-  $Business::CA::GST::VERSION = '1.00';
+  $Business::CA::GST::VERSION = '1.01';
 }
 
 use Moose;
@@ -71,7 +71,7 @@ Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 =head1 VERSION
 
-version 1.00
+version 1.01
 
 =head1 SYNOPSIS
 

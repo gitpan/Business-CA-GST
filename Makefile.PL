@@ -12,7 +12,10 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "Look up Canadian Federal Sales Tax rates",
   "AUTHOR" => "Olaf Alders <olaf\@wundercounter.com>",
   "BUILD_REQUIRES" => {
-    "Module::Build" => "0.3601"
+    "English" => 0,
+    "Module::Build" => "0.3601",
+    "Test::Exception" => 0,
+    "Test::More" => 0
   },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30",
@@ -22,8 +25,13 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Business::CA::GST",
-  "PREREQ_PM" => {},
-  "VERSION" => "1.00",
+  "PREREQ_PM" => {
+    "Carp" => 0,
+    "Moose" => 0,
+    "strict" => 0,
+    "warnings" => 0
+  },
+  "VERSION" => "1.01",
   "test" => {
     "TESTS" => "t/*.t"
   }

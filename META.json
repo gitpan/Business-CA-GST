@@ -24,6 +24,21 @@
             "ExtUtils::MakeMaker" : "6.30",
             "Module::Build" : "0.3601"
          }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : "0",
+            "Moose" : "0",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "English" : "0",
+            "Test::Exception" : "0",
+            "Test::More" : "0"
+         }
       }
    },
    "release_status" : "stable",
@@ -38,6 +53,6 @@
          "web" : "https://github.com/oalders/business-ca-gst"
       }
    },
-   "version" : "1.00"
+   "version" : "1.01"
 }
 
