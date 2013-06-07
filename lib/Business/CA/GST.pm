@@ -3,7 +3,7 @@ use warnings;
 
 package Business::CA::GST;
 {
-  $Business::CA::GST::VERSION = '1.01';
+  $Business::CA::GST::VERSION = '1.02';
 }
 
 use Moose;
@@ -11,7 +11,7 @@ use Carp qw( croak );
 
 my %TAX = (
     AB => { rate => 0.05, type => 'GST' },
-    BC => { rate => 0.12, type => 'HST' },
+    BC => { rate => 0.12, type => 'GST' },
     MB => { rate => 0.05, type => 'GST' },
     NB => { rate => 0.13, type => 'HST' },
     NL => { rate => 0.13, type => 'HST' },
@@ -61,8 +61,8 @@ __PACKAGE__->meta->make_immutable;
 
 # ABSTRACT: Look up Canadian Federal Sales Tax rates
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -71,7 +71,7 @@ Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 =head1 VERSION
 
-version 1.01
+version 1.02
 
 =head1 SYNOPSIS
 
@@ -166,4 +166,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
