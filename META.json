@@ -4,7 +4,7 @@
       "Olaf Alders <olaf@wundercounter.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Zilla version 5.020, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "perl_5"
    ],
@@ -16,13 +16,13 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.28"
          }
       },
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30",
-            "Module::Build" : "0.3601"
+            "ExtUtils::MakeMaker" : "0",
+            "Module::Build" : "0.28"
          }
       },
       "develop" : {
@@ -34,7 +34,8 @@
       "runtime" : {
          "requires" : {
             "Carp" : "0",
-            "Moose" : "0",
+            "Moo" : "0",
+            "perl" : "5.006",
             "strict" : "0",
             "warnings" : "0"
          }
@@ -58,6 +59,6 @@
          "web" : "https://github.com/oalders/business-ca-gst"
       }
    },
-   "version" : "1.02"
+   "version" : "1.03"
 }
 

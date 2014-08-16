@@ -1,12 +1,11 @@
 use strict;
 use warnings;
 
-package Business::CA::GST;
-{
-  $Business::CA::GST::VERSION = '1.02';
-}
+use 5.006;
 
-use Moose;
+package Business::CA::GST;
+$Business::CA::GST::VERSION = '1.03';
+use Moo;
 use Carp qw( croak );
 
 my %TAX = (
@@ -28,23 +27,20 @@ my %TAX = (
 has 'buyer_region' => ( is => 'rw', );
 
 sub rate {
-
     my $self = shift;
+
     $self->_validate_region;
     return $TAX{ $self->buyer_region }->{rate};
-
 }
 
 sub tax_type {
-
     my $self = shift;
+
     $self->_validate_region;
     return $TAX{ $self->buyer_region }->{type};
-
 }
 
 sub _validate_region {
-
     my $self = shift;
 
     if ( !exists $TAX{ $self->buyer_region } ) {
@@ -52,7 +48,6 @@ sub _validate_region {
     }
 
     return 1;
-
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -65,13 +60,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Business::CA::GST - Look up Canadian Federal Sales Tax rates
 
 =head1 VERSION
 
-version 1.02
+version 1.03
 
 =head1 SYNOPSIS
 
@@ -138,10 +135,6 @@ You can also look for information at:
 =item Source code
 
 L<http://github.com/oalders/business-ca-gst>
-
-=item Bugs and Requests
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=business-ca-gst>
 
 =item Search CPAN
 
